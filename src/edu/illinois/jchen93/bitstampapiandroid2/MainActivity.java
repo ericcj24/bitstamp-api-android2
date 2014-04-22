@@ -101,15 +101,12 @@ public class MainActivity extends Activity {
 	        public void onReceive(Context context, Intent intent) {
 	        	//String intentServiceType = intent.getData().toString();
 	        	//Log.i(TAG, "this is "+intentServiceType);
-
-	        		ArrayList<Transaction> s = intent.getParcelableArrayListExtra(TransactionUpdateService.TRANSACTION_RESULT);
-	            
-	        		if (s==null){ Log.i(TAG, "broadcast received null, failed broadcast");}
-	        		else{
-	        			Log.i(TAG, "transaction broadcast receive correctly, arraylist size is: "+Integer.toString(s.size()));
-	        			plotTransaction(s);
-	        		}
-	        	
+        		ArrayList<Transaction> s = intent.getParcelableArrayListExtra(TransactionUpdateService.TRANSACTION_RESULT);            
+        		if (s==null){ Log.i(TAG, "broadcast received null, failed broadcast");}
+        		else{
+        			Log.i(TAG, "transaction broadcast receive correctly, arraylist size is: "+Integer.toString(s.size()));
+        			plotTransaction(s);
+        		}	        	
 	        }
 	    };
 	    
@@ -118,8 +115,7 @@ public class MainActivity extends Activity {
 	    	public void onReceive(Context context, Intent intent){
 	    		//String intentAction = intent.getAction();
 	        	//Log.i(TAG, "this is "+intentAction);
-	    		//if(intentAction == OrderBookUpdateService.ORDERBOOK_RESULT){
-		  
+	    		//if(intentAction == OrderBookUpdateService.ORDERBOOK_RESULT){		  
 	        		ArrayList<Price_Amount> s = intent.getParcelableArrayListExtra(OrderBookUpdateService.ORDERBOOK_RESULT);   
 	        		if (s==null){ Log.i(TAG, "broadcast received null, failed broadcast");}
 	        		else{
@@ -201,7 +197,6 @@ public class MainActivity extends Activity {
     		}
     	}
     };
-    
 
     @Override
     protected void onStop() {
@@ -313,6 +308,7 @@ public class MainActivity extends Activity {
 		//temp.setText("");
 		temp.setVisibility(0);
 		plot1 = (XYPlot)findViewById(R.id.plot1);
+		plot1.getLayoutManager().remove(plot1.getDomainLabelWidget());
 		plot1.clear();
 		
 		int size = ob.size();
@@ -363,6 +359,7 @@ public class MainActivity extends Activity {
         // customize our domain/range labels
         plot1.setDomainLabel("Price");
         plot1.setRangeLabel("Amount");
+        
         
         plot1.redraw();
 		plot1.setVisibility(1);
