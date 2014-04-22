@@ -6,4 +6,4 @@ screenshots:
 
 ![screenshot1](/res/img/Screenshot_1.png)
 
-![screenshot2](https://github.com/ericcj24/bitstamp-api-android2/raw/master/res/img/Screenshot_2.png)
+![screenshot2](/res/img/Screenshot_2.png)
