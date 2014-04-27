@@ -1,6 +1,6 @@
-this version works for both transaction and order book
-transaction has database
-order book does not save old record, only display on the fly
+this version works for both transaction and order book. \n
+transaction has database. \n
+order book does not save old record, only display internet data on the fly.
 
 screenshots:
 
