@@ -168,7 +168,7 @@ public class TransactionUpdateService extends IntentService{
 		String[] projection = {KEY_TID, KEY_DATE, KEY_PRICE, KEY_AMOUNT};
 		String selection = null;
 		String[] selectionArgs = null;
-		String sortOrder = KEY_TID + " DESC";
+		String sortOrder = KEY_TID + " DESC" + " LIMIT " + 700;
 		Cursor c = db.query(TRANSACTION_TABLE_NAME,
 							projection,                               // The columns to return
 							selection,                                // The columns for the WHERE clause
